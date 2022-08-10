@@ -1,6 +1,6 @@
-package com.salmal.board.entity;
+package com.salmal.board.board.entity;
 
-import com.salmal.board.common.CommonEntity;
+import com.salmal.board.board.common.CommonEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +9,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Getter
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Board extends CommonEntity {
 
     @Id @GeneratedValue
@@ -26,14 +27,13 @@ public class Board extends CommonEntity {
     private BoardType type;
 
     @Column(name = "view_cnt")
-    private long viewCount;
+    private long viewCount = 0;
 
-    @Column(name = "bookmark_cnt")
-    private long bookmarkCount;
 
-    @Column(name = "report_cnt")
-    private long reportCount;
-
-    @Column(name = "comment_cnt")
-    private long commentCount;
+    public Board(String title, String content, BoardStatus status, BoardType type) {
+        this.title = title;
+        this.content = content;
+        this.status = status;
+        this.type = type;
+    }
 }

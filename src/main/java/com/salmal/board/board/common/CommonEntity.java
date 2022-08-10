@@ -1,4 +1,4 @@
-package com.salmal.board.common;
+package com.salmal.board.board.common;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedBy;
