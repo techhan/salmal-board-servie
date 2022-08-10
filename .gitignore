@@ -43,6 +43,8 @@
 # .idea/modules
 # *.iml
 # *.ipr
+# *.lock
+# *.bin
 
 # CMake
 cmake-build-*/
