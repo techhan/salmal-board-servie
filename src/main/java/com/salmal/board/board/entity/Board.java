@@ -1,15 +1,18 @@
 package com.salmal.board.board.entity;
 
-import com.salmal.board.board.common.CommonEntity;
+import com.salmal.board.common.CommonEntity;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Getter
 @Inheritance(strategy = InheritanceType.JOINED)
+@EntityListeners(AuditingEntityListener.class)
 public class Board extends CommonEntity {
 
     @Id @GeneratedValue
