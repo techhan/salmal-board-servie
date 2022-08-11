@@ -1,12 +1,13 @@
 package com.salmal.board.board.entity;
 
 import com.salmal.board.board.common.CommonEntity;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Getter
 @Inheritance(strategy = InheritanceType.JOINED)

@@ -1,14 +1,16 @@
 package com.salmal.board.board.entity;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
+
 @Entity
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class FreeBoard extends Board{
 
     @Column(name = "report_cnt")
@@ -21,4 +23,8 @@ public class FreeBoard extends Board{
 
     @Column(name = "comment_cnt")
     private long commentCount = 0;
+
+    private Long commentId;
+
+    private Long fileId;
 }

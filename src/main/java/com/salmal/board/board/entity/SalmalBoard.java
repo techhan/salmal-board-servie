@@ -19,4 +19,10 @@ public class SalmalBoard extends Board{
     @Column(name = "comment_cnt")
     private long commentCount = 0;
 
+    private Long voteId;
+
+    private Long commentId;
+
+    private Long fileId;
+
 }
