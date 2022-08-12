@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface FreeBoardRepository extends JpaRepository<FindFreeBoardDto, Long> {
+public interface FreeBoardRepository extends JpaRepository<FreeBoard, Long> {
 
 }

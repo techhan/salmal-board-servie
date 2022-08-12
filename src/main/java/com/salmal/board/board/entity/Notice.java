@@ -11,4 +11,5 @@ import javax.persistence.Entity;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Notice extends Board{
 
+    private String test;
 }
