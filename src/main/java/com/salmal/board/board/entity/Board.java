@@ -39,4 +39,15 @@ public class Board extends CommonEntity {
         this.status = status;
         this.type = type;
     }
+
+    public Board(String title, String content, BoardStatus status) {
+        this.title = title;
+        this.content = content;
+        this.status = status;
+    }
+
+    public void updateBoard(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 }
