@@ -30,4 +30,13 @@ public class FreeBoard extends Board{
     public FreeBoard(String title, String content, BoardStatus status, BoardType type) {
         super(title, content, status, type);
     }
+
+
+//    public FreeBoard(String title, String content) {
+//        super(title, content);
+//    }
+
+    public void updateFreeBoard(String title, String content) {
+        updateBoard(title, content);
+    }
 }
