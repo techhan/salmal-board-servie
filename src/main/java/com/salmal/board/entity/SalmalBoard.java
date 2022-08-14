@@ -1,4 +1,4 @@
-package com.salmal.board.board.entity;
+package com.salmal.board.entity;
 
 import lombok.Getter;
 
@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 
 @Getter
 @Entity
-public class SalmalBoard extends Board{
+public class SalmalBoard extends Board {
 
 
     @Column(name = "report_cnt")

@@ -1,14 +1,14 @@
-package com.salmal.board.board.entity;
+package com.salmal.board.entity;
 
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import com.salmal.board.board.dto.FindBoardDto;
-import com.salmal.board.board.dto.FindFreeBoardDto;
-import com.salmal.board.board.dto.QFindBoardDto;
-import com.salmal.board.board.dto.QFindFreeBoardDto;
-import com.salmal.board.board.entity.Board;
-import com.salmal.board.board.repository.BoardRepository;
-import com.salmal.board.board.repository.FreeBoardRepository;
+import com.salmal.board.dto.FindBoardDto;
+import com.salmal.board.dto.FindFreeBoardDto;
+import com.salmal.board.dto.QFindBoardDto;
+import com.salmal.board.dto.QFindFreeBoardDto;
+import com.salmal.board.entity.Board;
+import com.salmal.board.repository.BoardRepository;
+import com.salmal.board.repository.FreeBoardRepository;
 import org.apache.catalina.webresources.FileResourceSet;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,8 +24,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static com.salmal.board.board.entity.QBoard.*;
-import static com.salmal.board.board.entity.QFreeBoard.freeBoard;
+import static com.salmal.board.entity.QBoard.*;
+import static com.salmal.board.entity.QFreeBoard.freeBoard;
 import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest

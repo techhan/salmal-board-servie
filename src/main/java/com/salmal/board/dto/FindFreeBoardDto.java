@@ -1,9 +1,9 @@
-package com.salmal.board.board.dto;
+package com.salmal.board.dto;
 
 import com.querydsl.core.annotations.QueryProjection;
-import com.salmal.board.board.entity.BoardStatus;
-import com.salmal.board.board.entity.BoardType;
-import com.salmal.board.board.entity.FreeBoard;
+import com.salmal.board.entity.BoardStatus;
+import com.salmal.board.entity.BoardType;
+import com.salmal.board.entity.FreeBoard;
 import lombok.*;
 
 import java.time.LocalDateTime;

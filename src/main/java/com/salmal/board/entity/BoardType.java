@@ -1,4 +1,4 @@
-package com.salmal.board.board.entity;
+package com.salmal.board.entity;
 
 public enum BoardType {
     FREE_BOARD,
