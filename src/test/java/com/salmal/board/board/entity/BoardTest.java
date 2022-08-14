@@ -22,9 +22,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.Enumerated;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static com.salmal.board.board.entity.QBoard.*;
 import static com.salmal.board.board.entity.QFreeBoard.freeBoard;
+import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
 @Transactional
@@ -46,13 +48,10 @@ class BoardTest {
     public void beforeEach() {
          jpaQueryFactory = new JPAQueryFactory(em);
 
-
-        //String title, String content, BoardStatus status, BoardType type
-        //Board boardTest = new Board("테스트 제목", "테스트 내용", BoardStatus.CREATED, BoardType.NOTICE);
-
+         // C
         FreeBoard freeBoard = new FreeBoard("테스트 제목", "테스트 내용", BoardStatus.CREATED, BoardType.FREE_BOARD);
-        //em.persist(boardTest);
         em.persist(freeBoard);
+
 
     }
 
@@ -60,27 +59,50 @@ class BoardTest {
     @Test
     public void find() {
 
-
+        FreeBoard freeBoard2 = new FreeBoard("테스트 제목2", "테스트 내용2", BoardStatus.CREATED, BoardType.FREE_BOARD);
+        em.persist(freeBoard2);
 
         em.flush();
         em.clear();
 
-//        List<FindBoardDto> findBoardDto = jpaQueryFactory
-//                .select(new QFindBoardDto(board.id, board.title, board.content
-//                        , board.status, board.type, board.viewCount, board.createdDate))
-//                .from(board)
-//                .fetch();
+        //R(dto로 바로 조회) - 영속성 컨텍스트에서 관리 X
+        List<FindFreeBoardDto> findBoardDto = jpaQueryFactory
+                .select(new QFindFreeBoardDto(freeBoard.id, freeBoard.title, freeBoard.content,
+                        freeBoard.type, freeBoard.status, freeBoard.createdDate, freeBoard.viewCount))
+                .from(freeBoard)
+                .fetch();
 
-//        List<FindFreeBoardDto> findBoard = jpaQueryFactory
-//                .select(new QFindFreeBoardDto(freeBoard.id, freeBoard.title, freeBoard.content,
-//                        freeBoard.type, freeBoard.status, freeBoard.createdDate, freeBoard.viewCount))
-//                .from(freeBoard)
-//                .fetch();
+        System.out.println("findBoardDto = " + findBoardDto.get(0));
+        assertThat(findBoardDto.get(0).getContent()).isEqualTo("테스트 내용");
 
-        //Optional<FindFreeBoardDto> findBoard = freeBoardRepository.findById(freeBoard.getId());
 
-//        System.out.println("findBoard = " + findBoard.get(0));
-//        System.out.println("findBoardDto = " + findBoardDto.get(0));
-//        Assertions.assertThat(findBoardDto.get(0).getContent()).isEqualTo("테스트 내용");
+        // R(엔티티로 조회 후 DTO로 변환)
+        List<FreeBoard> findBoardEntityList = jpaQueryFactory
+                .selectFrom(freeBoard)
+                        .fetch();
+
+        List<FindFreeBoardDto> findBoardChangeDto = findBoardEntityList.stream()
+                .map(f -> new FindFreeBoardDto(f))
+                .collect(Collectors.toList());
+
+
+        System.out.println("========================== 수정 ========================");
+
+        findBoardEntityList.get(0).updateFreeBoard("수정된 제목 테스트", "수정된 내용 테스트");
+
+        // D
+        long result = jpaQueryFactory
+                .delete(freeBoard)
+                .where(freeBoard.id.eq(freeBoard2.getId()))
+                .execute();
+
+        System.out.println("result = " + result);
+
+        em.flush();
+        em.clear();
+
+
+        assertThat(result).isEqualTo(1);
+
     }
 }
