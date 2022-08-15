@@ -1,13 +1,12 @@
-package com.salmal.board.board.dto;
+package com.salmal.board.dto;
 
 import com.querydsl.core.annotations.QueryProjection;
-import com.salmal.board.board.entity.BoardStatus;
-import com.salmal.board.board.entity.BoardType;
+import com.salmal.board.entity.BoardStatus;
+import com.salmal.board.entity.BoardType;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
