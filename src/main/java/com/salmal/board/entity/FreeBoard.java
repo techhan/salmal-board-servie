@@ -1,4 +1,4 @@
-package com.salmal.board.board.entity;
+package com.salmal.board.entity;
 
 import lombok.*;
 
@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 @Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString()
-public class FreeBoard extends Board{
+public class FreeBoard extends Board {
 
     @Column(name = "report_cnt")
     private long reportCount = 0;

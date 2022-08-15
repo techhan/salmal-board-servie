@@ -1,6 +1,6 @@
-package com.salmal.board.board.entity;
+package com.salmal.board.entity;
 
-import com.salmal.board.common.CommonEntity;
+import com.salmal.common.CommonEntity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
