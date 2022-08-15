@@ -1,6 +1,6 @@
-package com.salmal.board.board.repository;
+package com.salmal.board.repository;
 
-import com.salmal.board.board.entity.Board;
+import com.salmal.board.entity.Board;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BoardRepository extends JpaRepository<Board, Long> {

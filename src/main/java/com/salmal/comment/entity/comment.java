@@ -1,12 +1,4 @@
-package com.salmal.board.comment.entity;
-
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.LastModifiedDate;
-
-import javax.persistence.Column;
-import javax.persistence.GenerationType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+package com.salmal.comment.entity;
 
 public class comment {
 
